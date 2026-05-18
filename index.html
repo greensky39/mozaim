@@ -316,6 +316,58 @@
         background: linear-gradient(165deg, #3c3b42, #131319 75%);
       }
 
+      .gallery {
+        margin-top: 56px;
+        padding: 34px 28px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+      }
+
+      .gallery h3 {
+        margin: 0;
+        font-size: clamp(24px, 3vw, 34px);
+        line-height: 1.2;
+      }
+
+      .gallery p {
+        margin: 12px 0 0;
+        color: var(--muted);
+        font-size: 17px;
+      }
+
+      .gallery-grid {
+        margin-top: 24px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .shot {
+        margin: 0;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: #f9fafc;
+      }
+
+      .shot img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 9 / 19.5;
+        object-fit: cover;
+      }
+
+      .shot figcaption {
+        padding: 11px 12px;
+        font-size: 13px;
+        color: #80848d;
+        border-top: 1px solid var(--line);
+        background: #fff;
+      }
+
       .contact {
         margin: 92px 0 76px;
         padding: 38px;
@@ -361,6 +413,10 @@
         .cards {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
+
+        .gallery-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
       }
 
       @media (max-width: 760px) {
@@ -395,6 +451,15 @@
         }
 
         .cards {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery {
+          margin-top: 40px;
+          padding: 22px 16px;
+        }
+
+        .gallery-grid {
           grid-template-columns: 1fr;
         }
 
@@ -492,10 +557,89 @@
         </div>
       </section>
 
+      <section class="gallery" aria-label="앱 화면 갤러리">
+        <h3>App Preview</h3>
+        <p>MOZA 사용자 여정을 구성하는 주요 화면을 확인할 수 있습니다.</p>
+        <div class="gallery-grid">
+          <figure class="shot">
+            <img
+              src="src/스플래시.png"
+              alt="MOZA 스플래시 화면"
+              loading="lazy"
+            />
+            <figcaption>스플래시</figcaption>
+          </figure>
+          <figure class="shot">
+            <img
+              src="src/온보딩1.png"
+              alt="MOZA 온보딩 첫 번째 화면"
+              loading="lazy"
+            />
+            <figcaption>온보딩 1</figcaption>
+          </figure>
+          <figure class="shot">
+            <img
+              src="src/온보딩2.png"
+              alt="MOZA 온보딩 두 번째 화면"
+              loading="lazy"
+            />
+            <figcaption>온보딩 2</figcaption>
+          </figure>
+          <figure class="shot">
+            <img
+              src="src/소셜로그인.png"
+              alt="MOZA 소셜 로그인 화면"
+              loading="lazy"
+            />
+            <figcaption>소셜 로그인</figcaption>
+          </figure>
+          <figure class="shot">
+            <img
+              src="src/이용 약관.png"
+              alt="MOZA 이용 약관 동의 화면"
+              loading="lazy"
+            />
+            <figcaption>이용 약관</figcaption>
+          </figure>
+          <figure class="shot">
+            <img
+              src="src/이용 약관_약관 상세.png"
+              alt="MOZA 이용 약관 상세 화면"
+              loading="lazy"
+            />
+            <figcaption>이용 약관 상세</figcaption>
+          </figure>
+          <figure class="shot">
+            <img
+              src="src/이용 약관_동의했을떄.png"
+              alt="MOZA 이용 약관 동의 완료 화면"
+              loading="lazy"
+            />
+            <figcaption>약관 동의 완료</figcaption>
+          </figure>
+          <figure class="shot">
+            <img
+              src="src/이용 권한.png"
+              alt="MOZA 이용 권한 안내 화면"
+              loading="lazy"
+            />
+            <figcaption>이용 권한</figcaption>
+          </figure>
+          <figure class="shot">
+            <img
+              src="src/회원가입 완료.png"
+              alt="MOZA 회원가입 완료 화면"
+              loading="lazy"
+            />
+            <figcaption>회원가입 완료</figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section class="contact" aria-label="회사 정보">
         <div class="contact-grid">
           <div class="label">Company Name</div>
-          <div class="value">(주)라페니체에스티오 (LafeniceSTO)</div>
+          <div class="value">(주)라페니체에스티오 (la fenice STO , Inc.)</div>
 
           <div class="label">Business Registration Number</div>
           <div class="value">620-88-02659</div>
