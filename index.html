@@ -2,137 +2,497 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MOZA | Service Verification</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MOZA | 가치를 조각하다</title>
     <meta
       name="description"
-      content="MOZA는 라페니체에스티오에서 개발 및 운영하는 서비스입니다."
+      content="MOZA는 라페니체에스티오에서 개발 및 운영하는 문화 자산 플랫폼입니다."
     />
     <style>
       :root {
-        --bg-1: #f8f7f2;
-        --bg-2: #ebe8dd;
-        --text: #1f1f1c;
-        --muted: #5c5a52;
-        --card: rgba(255, 255, 255, 0.78);
-        --line: rgba(31, 31, 28, 0.15);
-        --accent: #214b3b;
+        --bg: #f3f3f4;
+        --surface: #ffffff;
+        --ink: #101114;
+        --muted: #6d7078;
+        --line: #e2e4ea;
+        --brand: #ef3e83;
+        --brand-soft: #ffd6e7;
+        --shadow: 0 24px 60px rgba(16, 17, 20, 0.09);
       }
 
       * {
         box-sizing: border-box;
       }
 
+      html,
       body {
         margin: 0;
-        font-family:
-          "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-        color: var(--text);
-        min-height: 100vh;
-        background:
-          radial-gradient(
-            1000px 500px at 10% -10%,
-            #fffdf5 0%,
-            transparent 65%
-          ),
-          radial-gradient(
-            1000px 700px at 120% 120%,
-            #dde8e1 0%,
-            transparent 55%
-          ),
-          linear-gradient(135deg, var(--bg-1), var(--bg-2));
-        display: grid;
-        place-items: center;
-        padding: 24px;
+        padding: 0;
+        background: radial-gradient(circle at 80% 20%, #ffffff 0%, var(--bg) 50%);
+        color: var(--ink);
+        font-family: "Pretendard", "SUIT", "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
       }
 
-      .card {
-        width: min(820px, 100%);
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 20px;
-        padding: 32px;
-        backdrop-filter: blur(4px);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+      a {
+        color: inherit;
       }
 
-      h1 {
-        margin: 0;
-        font-size: clamp(34px, 6vw, 64px);
+      .wrap {
+        width: min(1200px, 92vw);
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(8px);
+        background: rgba(243, 243, 244, 0.8);
+        border-bottom: 1px solid rgba(226, 228, 234, 0.8);
+      }
+
+      .nav {
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .logo {
+        font-size: 30px;
+        font-weight: 900;
         letter-spacing: 0.04em;
-        color: var(--accent);
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        font-size: 12px;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.85);
+      }
+
+      .hero {
+        padding: 56px 0 34px;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 38px;
+        align-items: center;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(42px, 8vw, 86px);
+        line-height: 1.02;
+        letter-spacing: -0.03em;
+      }
+
+      .hero p {
+        margin: 30px 0 0;
+        max-width: 640px;
+        font-size: clamp(18px, 2.5vw, 30px);
+        line-height: 1.5;
+        color: var(--muted);
+      }
+
+      .visual {
+        position: relative;
+        min-height: 500px;
+      }
+
+      .blob {
+        position: absolute;
+        inset: 22px 0 18px 0;
+        border-radius: 36px;
+        background: linear-gradient(145deg, #fff 0%, #f0f2f7 78%);
+        box-shadow: var(--shadow);
+      }
+
+      .phone {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: min(320px, 65%);
+        aspect-ratio: 10 / 20;
+        transform: translate(-50%, -50%) rotate(-13deg);
+        border-radius: 40px;
+        border: 9px solid #0b0b0d;
+        background: #fff;
+        box-shadow: 0 40px 70px rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+      }
+
+      .screen {
+        height: 100%;
+        padding: 24px 18px;
+        background: linear-gradient(180deg, #fff 0%, #fafbfd 100%);
+      }
+
+      .art {
+        height: 42%;
+        border-radius: 18px;
+        background: conic-gradient(from 180deg at 50% 50%, #9c5bd8, #f64f8b, #f39f44, #49b37d, #9c5bd8);
+        filter: saturate(0.9);
+      }
+
+      .price {
+        margin-top: 20px;
+        font-weight: 800;
+        font-size: 32px;
+      }
+
+      .delta {
+        color: #26b66f;
+        font-weight: 700;
+        margin-left: 8px;
+        font-size: 16px;
+      }
+
+      .chips {
+        margin-top: 20px;
+        display: flex;
+        gap: 8px;
+      }
+
+      .chip {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        font-size: 12px;
+        padding: 6px 10px;
+        color: var(--muted);
+      }
+
+      .coin {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(circle at 25% 25%, #fff 0%, #d2d5dd 70%);
+        border: 1px solid #c9ccd4;
+        box-shadow: 0 8px 18px rgba(20, 20, 20, 0.2);
+      }
+
+      .c1 {
+        width: 74px;
+        height: 74px;
+        right: 6%;
+        top: 18%;
+      }
+
+      .c2 {
+        width: 56px;
+        height: 56px;
+        right: 12%;
+        top: 42%;
+      }
+
+      .c3 {
+        width: 96px;
+        height: 96px;
+        right: 20%;
+        bottom: 8%;
+      }
+
+      .stats {
+        margin-top: 28px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 26px;
+        box-shadow: var(--shadow);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .stat {
+        padding: 36px 30px;
+      }
+
+      .stat + .stat {
+        border-left: 1px solid var(--line);
+      }
+
+      .n {
+        font-size: clamp(46px, 4vw, 66px);
+        font-weight: 900;
         line-height: 1;
       }
 
-      .subtitle {
-        margin: 14px 0 0;
-        font-size: clamp(15px, 2.3vw, 20px);
+      .k {
+        margin-top: 14px;
         color: var(--muted);
-        line-height: 1.6;
+        font-size: 21px;
+        line-height: 1.45;
       }
 
-      .grid {
-        margin-top: 28px;
+      .section {
+        padding: 92px 0 14px;
+      }
+
+      .section h2 {
+        margin: 0;
+        font-size: clamp(36px, 5vw, 66px);
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+
+      .section .lead {
+        margin: 24px 0 0;
+        color: var(--muted);
+        font-size: clamp(18px, 2.4vw, 31px);
+        line-height: 1.55;
+        max-width: 920px;
+      }
+
+      .cards {
+        margin-top: 42px;
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        min-height: 310px;
+        border-radius: 22px;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(16, 17, 20, 0.04), rgba(16, 17, 20, 0.55));
+      }
+
+      .card span {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        color: #fff;
+        z-index: 1;
+        font-size: 28px;
+        line-height: 1.28;
+        font-weight: 700;
+      }
+
+      .g1 {
+        background: linear-gradient(160deg, #3b495f, #111926 72%);
+      }
+
+      .g2 {
+        background: linear-gradient(165deg, #185d90, #202f63 70%);
+      }
+
+      .g3 {
+        background: linear-gradient(165deg, #5d646f, #1d2632 80%);
+      }
+
+      .g4 {
+        background: linear-gradient(160deg, #1f4d3f, #0d231e 78%);
+      }
+
+      .g5 {
+        background: linear-gradient(165deg, #3c3b42, #131319 75%);
+      }
+
+      .contact {
+        margin: 92px 0 76px;
+        padding: 38px;
+        background: var(--surface);
+        border-radius: 28px;
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+      }
+
+      .contact-grid {
         display: grid;
         grid-template-columns: 180px 1fr;
-        gap: 10px 18px;
-        font-size: clamp(14px, 2vw, 17px);
-        line-height: 1.75;
+        gap: 14px 24px;
       }
 
       .label {
         font-weight: 700;
-        color: #2f2f2a;
       }
 
       .value {
-        color: #2f2f2a;
-        word-break: break-word;
-      }
-
-      .footer {
-        margin-top: 26px;
-        padding-top: 16px;
-        border-top: 1px dashed var(--line);
-        font-size: 13px;
         color: var(--muted);
+        font-weight: 500;
       }
 
-      @media (max-width: 640px) {
-        .card {
-          padding: 24px 20px;
-        }
-        .grid {
+      .foot {
+        padding: 20px 0 42px;
+        color: #9fa2a9;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+      }
+
+      @media (max-width: 1100px) {
+        .hero {
           grid-template-columns: 1fr;
-          gap: 4px 0;
         }
+
+        .visual {
+          min-height: 420px;
+        }
+
+        .cards {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 760px) {
+        .nav {
+          min-height: 64px;
+        }
+
+        .badge {
+          display: none;
+        }
+
+        .hero {
+          padding-top: 28px;
+          gap: 22px;
+        }
+
+        .hero p {
+          margin-top: 16px;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .stat + .stat {
+          border-left: 0;
+          border-top: 1px solid var(--line);
+        }
+
+        .section {
+          padding-top: 64px;
+        }
+
+        .cards {
+          grid-template-columns: 1fr;
+        }
+
+        .contact {
+          margin: 64px 0 56px;
+          padding: 26px 20px;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 6px;
+        }
+
         .label {
           margin-top: 10px;
+        }
+
+        .foot {
+          flex-direction: column;
+          align-items: flex-start;
         }
       }
     </style>
   </head>
   <body>
-    <main class="card" role="main" aria-label="MOZA 서비스 소개">
-      <h1>MOZA</h1>
-      <p class="subtitle">
-        MOZA는 라페니체에스티오에서 개발 및 운영하는 서비스입니다.
-      </p>
+    <header class="topbar">
+      <div class="wrap nav">
+        <div class="logo">MOZA</div>
+        <div class="badge">PIECE YOUR VALUE</div>
+      </div>
+    </header>
 
-      <section class="grid" aria-label="회사 정보">
-        <div class="label">Company</div>
-        <div class="value">(주)라페니체에스티오</div>
+    <main class="wrap">
+      <section class="hero" aria-label="MOZA 소개">
+        <div>
+          <h1>MOZA<br />가치를 조각하다</h1>
+          <p>
+            MOZA는 예술 작품과 문화 콘텐츠를 더 많은 사람이 참여할 수 있는 자산
+            구조로 연결합니다. 감상의 순간을 넘어 참여와 소유, 그리고 가치의
+            흐름까지 확장되는 새로운 문화 자산 플랫폼을 지향합니다.
+          </p>
+        </div>
 
-        <div class="label">Business Registration</div>
-        <div class="value">사업자번호 620-88-02659</div>
-
-        <div class="label">Contact</div>
-        <div class="value"><a href="mailto:@moza.im">info@moza.im</a></div>
+        <div class="visual" aria-hidden="true">
+          <div class="blob"></div>
+          <div class="phone">
+            <div class="screen">
+              <div class="art"></div>
+              <div class="price">$ 12,650.00 <span class="delta">+3.25%</span></div>
+              <div class="chips">
+                <div class="chip">1D</div>
+                <div class="chip">1W</div>
+                <div class="chip">1M</div>
+                <div class="chip">ALL</div>
+              </div>
+            </div>
+          </div>
+          <div class="coin c1"></div>
+          <div class="coin c2"></div>
+          <div class="coin c3"></div>
+        </div>
       </section>
 
-      <div class="footer">
-        This page is provided for service and project verification purposes.
-      </div>
+      <section class="stats" aria-label="핵심 지표">
+        <article class="stat">
+          <div class="n">10+</div>
+          <div class="k">Global<br />Creative Partners</div>
+        </article>
+        <article class="stat">
+          <div class="n">20,000+</div>
+          <div class="k">Exhibition Visitors<br />Connected</div>
+        </article>
+        <article class="stat">
+          <div class="n">100+</div>
+          <div class="k">Multiple Cultural Asset<br />Projects</div>
+        </article>
+      </section>
+
+      <section class="section" aria-label="가치 구조">
+        <h2>작은 조각들이 모여<br />하나의 가치 구조를 이룹니다</h2>
+        <p class="lead">
+          MOZA라는 이름은 모자이크에서 출발합니다. 서로 다른 요소들이 연결되어
+          하나의 이미지를 완성하듯, 예술과 콘텐츠, 권리와 공간, 기술과 인프라는
+          함께 더 큰 생태계를 형성합니다.
+        </p>
+
+        <div class="cards">
+          <article class="card g1"><span>Art &amp; Collection</span></article>
+          <article class="card g2"><span>Profit Realty</span></article>
+          <article class="card g3"><span>Digital Infra</span></article>
+          <article class="card g4"><span>Energy</span></article>
+          <article class="card g5"><span>Future Asset</span></article>
+        </div>
+      </section>
+
+      <section class="contact" aria-label="회사 정보">
+        <div class="contact-grid">
+          <div class="label">Company Name</div>
+          <div class="value">라페니체에스티오 (Lafenice STO)</div>
+
+          <div class="label">Business Registration Number</div>
+          <div class="value">620-88-02659</div>
+
+          <div class="label">Address</div>
+          <div class="value">Seoul, Republic of Korea</div>
+
+          <div class="label">Contact</div>
+          <div class="value"><a href="mailto:contact@moza.im">contact@moza.im</a></div>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <div>MOZA | Service and Project Verification Website</div>
+        <div>COPYRIGHT © 2026 MOZA ALL RIGHTS RESERVED.</div>
+      </footer>
     </main>
   </body>
 </html>
